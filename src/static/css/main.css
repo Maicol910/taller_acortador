@@ -90,7 +90,7 @@ input[type="password"] {
 
 .button3 {
     border: none;
-    width: 10%;
+    width: 10% auto;
     color: rgb(19, 17, 17);
     font-size: 20px;
     background: #ffffff;
@@ -101,6 +101,21 @@ input[type="password"] {
 
 .button3:hover {
     background: #3d3c3d;
+}
+
+.button4 {
+    border: none;
+    width: 10% auto;
+    color: rgb(29, 27, 27);
+    font-size: 20px;
+    background: #ffffff;
+    padding: 10px 15px auto;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button4:hover {
+    background: #ff0000;
 }
 
 p {

@@ -22,10 +22,13 @@ class DatosModel():
 
     def registro(self, nombre, email, password):
         cursor = DB.cursor()
-
         cursor.execute('insert into usuario(nombre, email, password) values(?,?,?)', (nombre, email, password,))
-
         cursor.close()
+
+    def confirmarE(self, email):
+        cursor = DB.cursor()
+        cursor.execute('update usuario set verificacion = curdate() where email = ?',(email,))
+        cursor.close
 
     def login1(self, user):
         cursor = DB.cursor()
@@ -37,9 +40,7 @@ class DatosModel():
 
     def eliminar(self,id):
         cursor = DB.cursor()
-
         cursor.execute('delete from acortador_base where id=?',(id,))
-
         cursor.close()
 
     def editar(self,id,acortador,link):

@@ -77,6 +77,10 @@ def registro():
 
 @app.route('/index/verificacion/<email>', methods=['GET', 'POST'])  
 def verificacion(email):
+
+    datosModel = DatosModel()  
+    datosModel.confirmarE(email)
+    
     return render_template('login.html')
 
 #-----------------------------------------------LOGIN--------------------------------------------
@@ -87,7 +91,7 @@ def login():
     
     if request.method =='GET':
         return render_template('login.html')
-
+    
     email = request.form.get('email')
     password = request.form.get('password')    
     p = hashlib.new('md5',password.encode('utf8'))
@@ -99,8 +103,9 @@ def login():
     }
     usua = datosModel.login1(user)
 
-    if (usua == None):
+    if (usua[4] == None):
         flash('Las credenciales no son validas.','error')
+        flash('o verifique su E-mail si no lo ha echo','error')
         return render_template('login.html')
 
     session['usuario'] = usua

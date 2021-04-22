@@ -1,0 +1,26 @@
+{% extends 'layouts/base.html' %} {% block titulo %} EDITAR {% endblock %} {% block contenido%}
+
+<form method="POST" class="formulario">
+
+    <a class="link" href="{{ url_for('datos') }}">X</a>
+
+    <h1>EDITAR LINK</h1>
+
+    <div class="contenedor">
+
+        <div class="input-contenedor">
+            <label>LINK_ACORTADO:</label>
+            <input type="text" class="form-control" id="acortador" name="acortador" value="{{datos[2]}}">
+        </div>
+        <div class="input-contenedor">
+            <label>LINK:</label>
+            <input type="text" class="form-control" id="link" name="link" value="{{datos[3]}}">
+        </div>
+        <div>
+            <button class="button" type="submit">Guardar</button>
+            <!--<a class="btn btn-outline-dark" role="button" href="{{url_for('index') }}">volver</a>-->
+        </div>
+    </div>
+</form>
+
+{% endblock %}

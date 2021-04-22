@@ -1,0 +1,46 @@
+{% extends 'layouts/base.html' %} {% block titulo %} ACORTADOR {% endblock %} {% block contenido%}
+
+<form action="{{ url_for('index') }}" method="POST">
+    <p style="color: #ffffff;">Integrantes: Maicol Jossa - Henry Rosero
+    </p>
+    <h1 style="color:#ffffff">RECORTADOR + REGISTRO</h1>
+    <div>
+        <div>
+        </div>
+        <div>
+            <center>
+                {% if session['usuario'] %}
+                <a style="color: #000000;" class="button3 link" href="{{url_for('datos') }}">Ver Link's</a>
+                <a style="color: #000000;" class="button3 link" href="{{ url_for('logout') }}">Cerrar Sesion</a>
+                <h3 style="color: #ffffff;">Bienvenido {{ session['usuario'][1]}} </h3> {% else %}
+                <a style="color: #000000;" class="button3 link" role="button" href="{{url_for('registro') }}">Registrarse</a>
+                <a style="color: #000000;" class="button3 link" href="{{url_for('login') }}">Iniciar Sesion</a>
+                <p style="color: #ffffff;"> No se ha iniciado sesión</p>
+                {% endif %}
+            </center>
+        </div>
+    </div>
+    <br>
+    <div class="contenedor2">
+        <center>
+            <input type="text" class="contenedor2" name="link" id="link" placeholder="Acortar tu enlace">
+            <button class="button2" type="submit">Acortar</button>
+        </center>
+        {% if session['usuario']%} {% else %}
+        <center>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> http://127.0.0.1:5000/{{ acortador}} </td>
+                    </tr>
+            </table>
+        </center>
+        {% endif %}
+    </div>
+</form>
+{% endblock %}

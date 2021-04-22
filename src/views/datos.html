@@ -1,0 +1,30 @@
+{% extends 'layouts/base.html' %} {% block titulo %} ACORTADOR {% endblock %} {% block contenido%}
+
+<table class="table2">
+    <thead>
+        <tr>
+            <th>Link_Acortado</th>
+            <th>Link</th>
+            <th>Funciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for acortador in acortador1 %}
+        <tr>
+            <td> http://127.0.0.1:5000/{{ acortador[2] }} </td>
+            <td> {{ acortador[3] }} </td>
+            <td>
+                <button class="btn-success"><a class="link2" href="{{url_for('editar', id=acortador[0])}}">Editar</a></button>
+                <button class="btn-danger"><a class="link2" href="{{url_for('eliminar', id=acortador[0])}}">Eliminar</a></button>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<form method="POST">
+    <center>
+        <a style="color: #000000;" class="button3 link" href="{{url_for('index') }}">Volver</a>
+    </center>
+</form>
+
+{% endblock %}

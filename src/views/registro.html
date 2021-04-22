@@ -1,0 +1,29 @@
+{% extends 'layouts/base.html' %} {% block titulo %} ACORTADOR {% endblock %} {% block contenido%}
+<form action="{{ url_for('registro') }}" method="POST" class="formulario">
+    <a class="link" href="{{ url_for('index') }}">X</a>
+    <h1>REGISTRO</h1>
+    <div class="contenedor">
+        <div class="input-contenedor">
+            <i class="fas fa-user icon"></i>
+            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="NOMBRE">
+        </div>
+
+        <div class="input-contenedor">
+            <i class="fas fa-envelope icon"></i>
+            <input class="form-control" type="text" id="email" name="email" placeholder="CORREO ELECTRONICO">
+        </div>
+
+        <div class="input-contenedor">
+            <i class="fas fa-key icon"></i>
+            <input type="password" class="form-control" id="password" name="password" placeholder="CONTRASEÑA">
+        </div>
+        <div>
+            <button class="button" type="submit">Guardar</button>
+            <p>¿Ya tienes una cuenta?<a class="link" href="{{ url_for('login') }}">Iniciar Sesion</a></p>
+            <!--<a class="btn btn-outline-dark" role="button" href="{{url_for('index') }}">volver</a>-->
+        </div>
+
+    </div>
+</form>
+
+{% endblock %}

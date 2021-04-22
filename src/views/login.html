@@ -1,0 +1,25 @@
+{% extends 'layouts/base.html' %} {% block titulo %} ACORTADOR {% endblock %} {% block contenido%}
+
+
+<form action="{{ url_for('login') }}" method="POST" class="formulario">
+    <a class="link" href="{{ url_for('index') }}">X</a>
+    <h1>INICIAR SESION</h1>
+    <div class="contenedor">
+        <div class="input-contenedor">
+            <i class="fas fa-envelope icon"></i>
+            <input type="text" type="email" id="email1" name="email" placeholder="CORREO">
+        </div>
+
+        <div class="input-contenedor">
+            <i class="fas fa-key icon"></i>
+            <input type="password" id="password" name="password" placeholder="CONTRASEÑA">
+        </div>
+
+        <div class="contenedor">
+            <button class="button" type="submit">Iniciar Sesion</button>
+        </div>
+
+        <p>¿No tienes una cuenta? <a class="link" href="{{ url_for('registro') }}">Registrate</a></p>
+    </div>
+</form>
+{% endblock %}
